@@ -1,5 +1,5 @@
 # Stage 1: Construye la aplicación React
-FROM node:lts-bullseye as builder
+FROM node:18 as builder
 
 WORKDIR /app
 
