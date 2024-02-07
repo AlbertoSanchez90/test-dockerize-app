@@ -16,7 +16,7 @@ jobs:
         with:
           host: ec2-54-224-139-174.compute-1.amazonaws.com
           user: admin
-          key: ${{ secrets.EC2_CHACONSERVER }}
+          key: ${{ secrets.EC2_CHACON_SERVER }}
           connect_timeout: 10s
           script: |
             sudo mkdir prueba
