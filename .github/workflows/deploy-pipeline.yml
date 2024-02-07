@@ -19,6 +19,5 @@ jobs:
           key: ${{ secrets.EC2_CHACONSERVER }}
           connect_timeout: 10s
           script: |
-            cd test
-            touch test.txt
-            echo "probando" >> test.txt
+            sudo mkdir prueba
+
