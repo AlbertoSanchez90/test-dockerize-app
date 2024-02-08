@@ -14,10 +14,10 @@ jobs:
       - name: conection ssh-v6
         uses: cross-the-world/ssh-pipeline@master
         with:
-          host: ec2-54-224-139-174.compute-1.amazonaws.com
-          user: admin
-          key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmzPRdFZpp7bQ5/iWwjCt/qc8A1KVg31i2aeVSBL1BvoWYYXpY12yTynsVNLXef9oovZ76dR7b3khyG1kNYPkP+W5p9eEzgL8YQXkL6UlD5bet999MQIYyJ/shAcBN2DCFtU7Gsfck0NLL9w5J/kJyZGnR93PLNJcznwlM1X0LkK6QPv2hQEpBnku0w/d1eyjzwmGxwPfKRKYPOEvsBw7RdA1MwvIjfdleIJyl5TqKUYBVxXjTVE+CvnUtKYsNfIpPk0gDs9vFJsU4M7kMQhaVMTThO3iDbmICG/wod1x/YXuOaIFhAfxicq83wEGdBsbzQjtsNaqgRJil3OWf8fB+x6oiA3FeXUbVLdbgaoJqdY4LeewsAGxhgC3gIvrir/gue1+Kh5J+koSZ2HpGatKzj+Vzu1g4AKZk39ufmv+tZQzSRPUwq1WRkjRJSDeildJXtHyz22yZjOp2CGqEIcaTUiipVZIZSgBzPmR7bPPs3KAkr/+C5foya2VcPaAu8Hs= root@ip-172-31-17-48
+          host: ec2-44-205-253-196.compute-1.amazonaws.com
+          user: ubuntu
+          key: ${{ secrets.EC2_CHACON_SERVER }}
           connect_timeout: 10s
           script: |
-            sudo mkdir prueba1
+            mkdir prueba1
 
