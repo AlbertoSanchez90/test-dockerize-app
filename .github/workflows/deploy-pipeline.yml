@@ -11,7 +11,7 @@ jobs:
     name: update container server-1
     runs-on: ubuntu-latest
     steps:
-      - name: conection ssh-v6
+      - name: conection ssh-v7
         uses: cross-the-world/ssh-pipeline@master
         with:
           host: ec2-44-205-253-196.compute-1.amazonaws.com
