@@ -19,5 +19,6 @@ jobs:
           key: ${{ secrets.EC2_CHACON_SERVER }}
           connect_timeout: 10s
           script: |
-            mkdir prueba1
-
+            sudo docker pull bettosanchez90/testwf:master
+            sudo docker stop front_container && sudo docker rm front_container
+            sudo docker run -d -p 80:80 --name front_container bettosanchez90/testwf:master
