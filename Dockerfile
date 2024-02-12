@@ -17,7 +17,7 @@ FROM nginx:alpine
 ADD ./config/default.conf /etc/nginx/conf.d/default.conf
 
 # Copia los archivos construidos desde la etapa anterior
-COPY --from=builder /app/dist /var/www/app/
+COPY --from=builder /app/dist /var/www/test/
 
 EXPOSE 80
 
