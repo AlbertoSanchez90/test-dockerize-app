@@ -14,7 +14,7 @@ RUN npm run build
 # Stage 2: Configura Nginx y copia los archivos construidos
 FROM nginx:alpine
 
-ADD ./config/default2.conf /etc/nginx/conf.d/default.conf
+ADD ./config/default.conf /etc/nginx/conf.d/default.conf
 
 # Copia los archivos construidos desde la etapa anterior
 COPY --from=builder /app/dist /var/www/app/
