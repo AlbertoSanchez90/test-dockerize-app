@@ -21,4 +21,4 @@ jobs:
           script: |
             sudo docker pull bettosanchez90/testwf:master
             sudo docker stop front_container && sudo docker rm front_container
-            sudo docker run -d -p 3000:80 -v /home/ubuntu/configuration_nginx/af_frontend.conf:/etc/nginx/conf.d --name front_container bettosanchez90/testwf:master
+            sudo docker run -d -p 3000:80 -v /home/ubuntu/configuration_nginx/default.conf:/etc/nginx/conf.d/default.conf --name front_container bettosanchez90/testwf:master
