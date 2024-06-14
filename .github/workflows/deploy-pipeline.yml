@@ -14,7 +14,7 @@ jobs:
       - name: conection ssh-v7
         uses: cross-the-world/ssh-pipeline@master
         with:
-          host: ec2-3-89-225-110.compute-1.amazonaws.com
+          host: ec2-54-242-166-136.compute-1.amazonaws.com
           user: ubuntu
           key: ${{ secrets.EC2_CHACON_SERVER }}
           connect_timeout: 10s
