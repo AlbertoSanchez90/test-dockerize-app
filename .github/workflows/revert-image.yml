@@ -1,0 +1,37 @@
+name: Revert to Stable Docker Image on Single Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_version:
+        description: 'Version of the Docker image to revert to'
+        required: true
+        default: 'latest'
+
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Authenticate to Docker Hub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+
+    - name: Revert Docker container on server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ec2-54-242-166-136.compute-1.amazonaws.com
+        username: ubuntu
+        key: ${{ secrets.EC2_CHACON_SERVER }}
+        script: |
+          IMAGE_VERSION=${{ github.event.inputs.image_version }}
+          sudo docker pull bettosanchez90/testwf:${IMAGE_VERSION}
+          sudo docker stop front_container || true
+          sudo docker rm front_container || true
+          sudo docker run -d -p 80:80 -v /home/ubuntu/configuration_nginx/af_frontend.conf:/etc/nginx/conf.d/default.conf --name front_container bettosanchez90/testwf:${IMAGE_VERSION}
