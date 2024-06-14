@@ -19,6 +19,6 @@ jobs:
           key: ${{ secrets.EC2_CHACON_SERVER }}
           connect_timeout: 10s
           script: |
-            sudo docker pull bettosanchez90/testwf:latest
+            sudo docker pull bettosanchez90/testwf:9c01dcad8cba6880f3827a333a746c26f21742b6
             sudo docker stop front_container && sudo docker rm front_container
-            sudo docker run -d -p 80:80 -v /home/ubuntu/configuration_nginx/af_frontend.conf:/etc/nginx/conf.d/default.conf --name front_container bettosanchez90/testwf:latest
+            sudo docker run -d -p 80:80 -v /home/ubuntu/configuration_nginx/af_frontend.conf:/etc/nginx/conf.d/default.conf --name front_container bettosanchez90/testwf:9c01dcad8cba6880f3827a333a746c26f21742b6
